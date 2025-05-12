@@ -4,26 +4,29 @@ public class Cuffie extends Prodotto {
     private String colore;
     private boolean wirless;
 
-    public Cuffie(String nome, String colore, float prezzo, float iva, boolean wirless) {
-        super(nome, nome, colore, prezzo, iva);
+    public Cuffie(String nome, String colore, String descrizione, String marca, float prezzo, float iva,
+            boolean wirless) {
+        super(nome, marca, descrizione, prezzo);
 
         this.colore = colore;
         this.wirless = wirless;
     }
-    //metodi
+    // metodi
 
-    public String GetColore (){
+    public String GetColore() {
         return this.colore;
     }
 
-    public boolean isWireless(){
+    public boolean isWireless() {
         return this.wirless;
     }
 
-    public void setColore (String colore){
-        if( colore.length() < 2)
-        this.colore = colore;
+    public void setColore(String colore) {
+        if (colore == null|| colore.length() < 2){
+            System.out.println("Inserisci un colore");
+        }else{
+            this.colore = colore;
+        }
 
     }
-
 }

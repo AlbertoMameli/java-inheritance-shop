@@ -9,9 +9,9 @@ public class Smartphone extends Prodotto {  //estendo la la classe smartphone al
 
     // costruttore
     public Smartphone(String nome, String marca, String descrizione, float prezzo, float iva, String imei, int memoria) { // non ritorna nulla ma costruisce
-        super(nome, marca, descrizione, prezzo, iva);//invocazione metodo
+        super(nome, marca, descrizione, prezzo);//invocazione metodo
         this.memoria = memoria;
-        this.imei = imei;
+        this.imei = generaImei();
 
     }
 
@@ -31,18 +31,24 @@ public class Smartphone extends Prodotto {  //estendo la la classe smartphone al
     }
 
     public void setMemoria (int memoria){
-        this.memoria = memoria;
+        if (memoria < 0){
+            this.memoria = memoria;
+        }
+        else {
+            System.out.println("Inserisci un'opzione valida.");
+        }
+    
     }
 
 
     //genera imei randomico
-    public void generaImei(){
+    public String generaImei(){
         Random rand = new Random();
         StringBuilder generatedImei = new StringBuilder();  //creo un contenitore vuoto per contenere i numeri che andrò a generare
         for (int i = 0; i < 15; i ++){
             generatedImei.append(rand.nextInt(10));//genero numero casuale tra 0 e 10 e lo aggiungo con append alla stringa
         }
-        this.imei = generatedImei.toString(); //convertiamo stringbuilder in stringa
+        return generatedImei.toString(); // mi ritorna una stringa
     }
 @Override //implementiamo un metodo della sottoclasse alla nostra superclasse
 public String toString(){

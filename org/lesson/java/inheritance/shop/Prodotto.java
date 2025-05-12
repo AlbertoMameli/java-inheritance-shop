@@ -25,15 +25,16 @@ public class Prodotto {
     protected String descrizione;
     protected float prezzo;
     protected float iva;
-
+ 
     // Costruttore
-    public Prodotto(String nome, String marca, String descrizione, float prezzo, float iva) {
+    public Prodotto(String nome, String marca, String descrizione, float prezzo) {
         Random codiceRandomico = new Random();
         this.codice = codiceRandomico.nextInt(1111111, 9999999);
         this.nome = nome;
         this.marca = marca;
+        this.descrizione = descrizione;
         this.prezzo = prezzo;
-        this.iva = iva;
+        this.iva = 22.0f;
 
     }
     //getter
@@ -53,6 +54,40 @@ public class Prodotto {
     public String getPrezzoFormattatoConIva(){
         DecimalFormat prezzoFormattato = new DecimalFormat("0.00");
         return prezzoFormattato.format(getPrezzoIvato()) + " euro";
+    }
+
+    public void setNome ( String nome){
+        if (nome == null || nome.trim().isEmpty()){
+            System.out.println("Inserire un nome");
+            return;
+        }
+        this.nome = nome;
+
+    }
+
+    public void setMarca (String marca){
+        if (marca == null || marca.isBlank()){
+            System.out.println("Inserisci una marca");
+            return;
+        }
+        this.marca = marca;
+    }
+
+
+    public void setDescrizione(String descrizione){
+        if (descrizione == null || descrizione.trim().isEmpty()){
+            System.out.println("Inserisci descrizione");
+            return;
+
+        }
+        this.descrizione = descrizione;
+    }
+    public void setPrezzo (float prezzo){
+        if(prezzo <= 0){
+            System.out.println("Inserisci il prezzo");
+            return;
+        }
+        this.prezzo = prezzo;
     }
 
 }
