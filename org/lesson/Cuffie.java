@@ -23,4 +23,10 @@ public class Cuffie extends Prodotto {
         return this.wirless;
     }
 
+    public void setColore (String colore){
+        if( colore.length() < 2)
+        this.colore = colore;
+        
+    }
+
 }

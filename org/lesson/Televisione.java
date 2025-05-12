@@ -24,7 +24,11 @@ public class Televisione extends Prodotto {
 
     // setter
     public void setPollici( int pollici){
+        if (pollici <= 16)
         this.pollici =  pollici;
+        else {
+            System.out.println("perfavore inserisci delle misure valide");
+        }
     }
 
 }
