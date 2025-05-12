@@ -1,7 +1,4 @@
-package org.lesson;
-
-//Cuffie, caratterizzate dal colore e se sono wireless o cablate
-import org.lesson.java.inheritance.shop.Prodotto;
+package org.lesson.java.inheritance.shop;
 
 public class Cuffie extends Prodotto {
     private String colore;
@@ -26,7 +23,7 @@ public class Cuffie extends Prodotto {
     public void setColore (String colore){
         if( colore.length() < 2)
         this.colore = colore;
-        
+
     }
 
 }

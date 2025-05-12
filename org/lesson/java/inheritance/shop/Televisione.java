@@ -1,6 +1,4 @@
-package org.lesson;
-
-import org.lesson.java.inheritance.shop.Prodotto;
+package org.lesson.java.inheritance.shop;
 
 public class Televisione extends Prodotto {
     private int pollici;
